@@ -23,7 +23,7 @@ export default function AdminPanel({ token }) {
 
   const fetchQuestions = async () => {
     try {
-      let res = await axios.get("http://localhost:8085/api/exam/questions", {
+      let res = await axios.get("http://localhost:9090/exam-backend/api/exam/questions", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setQuestions(res.data);
@@ -39,7 +39,7 @@ export default function AdminPanel({ token }) {
 
   const fetchResults = async () => {
     try {
-      let res = await axios.get("http://localhost:8085/api/exam/results", {
+      let res = await axios.get("http://localhost:9090/exam-backend/api/exam/results", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setResults(res.data);
@@ -52,13 +52,13 @@ export default function AdminPanel({ token }) {
   const saveQuestion = async () => {
     try {
       if (editingId) {
-        await axios.put(`http://localhost:8085/api/exam/update/${editingId}`, q, {
+        await axios.put(`http://localhost:9090/exam-backend/api/exam/update/${editingId}`, q, {
           headers: { Authorization: `Bearer ${token}` },
         });
         alert("✅ Question updated");
         setEditingId(null);
       } else {
-        await axios.post("http://localhost:8085/api/exam/add", q, {
+        await axios.post("http://localhost:9090/exam-backend/api/exam/add", q, {
           headers: { Authorization: `Bearer ${token}` },
         });
         alert("✅ Question added");
@@ -72,7 +72,7 @@ export default function AdminPanel({ token }) {
 
   const deleteQuestion = async (id) => {
     try {
-      await axios.delete(`http://localhost:8085/api/exam/delete/${id}`, {
+      await axios.delete(`http://localhost:9090/exam-backend/api/exam/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("🗑️ Question deleted");
