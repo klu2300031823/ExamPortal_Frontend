@@ -31,7 +31,7 @@ export default function UserPanel({ token }) {
   useEffect(() => {
     if (started && questions.length === 0) {
       axios
-        .get("http://localhost:8085/api/exam/questions", {
+        .get("http://localhost:9090/exam-backend/api/exam/questions", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
@@ -69,7 +69,7 @@ export default function UserPanel({ token }) {
   useEffect(() => {
     if (view === "history") {
       axios
-        .get(`http://localhost:8085/api/exam/results/${username}`, {
+        .get(`http://localhost:9090/exam-backend/api/exam/results/${username}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => setHistory(res.data))
@@ -89,7 +89,7 @@ export default function UserPanel({ token }) {
 
     try {
       const res = await axios.post(
-        "http://localhost:8085/api/exam/submit",
+        "http://localhost:9090/exam-backend/api/exam/submit",
         data,
         { headers: { Authorization: `Bearer ${token}` } }
       );
