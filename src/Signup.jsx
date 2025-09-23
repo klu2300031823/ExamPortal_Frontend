@@ -40,7 +40,7 @@ export default function Signup() {
       role: form.role,
     });
 
-    callApi("POST", "http://localhost:8085/users/signup", data, handleResponse);
+    callApi("POST", "http://localhost:9090/exam-backend/users/signup", data, handleResponse);
   };
 
   const handleResponse = (res) => {
