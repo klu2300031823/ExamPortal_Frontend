@@ -40,8 +40,8 @@ export default function App() {
             </>
           ) : (
             <>
-              <Link to="/signin" className="nav-btn">Login</Link>
-              <Link to="/signup" className="nav-btn">Register</Link>
+              <Link to="/signin" className="nav-btn">Signin</Link>
+              <Link to="/signup" className="nav-btn">Signup</Link>
             </>
           )}
         </div>
